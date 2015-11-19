@@ -6,8 +6,8 @@
 
 set -e
 DIR=$HOME/.dotfiles
-FILES=(.latexmkrc)
-for i in $FILES
+FILES=(.latexmkrc .Xmodmap .hunspell_en_US .gitconfig)
+for i in ${FILES[@]}
 do
-    ln -s $HOME/$i $DIR/$i
+    ln -sf $DIR/$i $HOME/$i
 done
