@@ -1,0 +1,86 @@
+# -*- mode:sh -*-
+
+#   __                  _   _
+#  / _|_   _ _ __   ___| |_(_) ___  _ __  ___
+# | |_| | | | '_ \ / __| __| |/ _ \| '_ \/ __|
+# |  _| |_| | | | | (__| |_| | (_) | | | \__ \
+# |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|___/
+
+if [ $(type lsb_release >/dev/null 2>&1) ]; then
+    dist=$(lsb_release -i)
+    if [[ $dist == *"Ubuntu"* ]]; then
+        update-ppa()
+        {
+            sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/`echo $1 | tr / - `-`lsb_release -c | awk '{print $NF}' | tr -d ' '`.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
+        }
+    elif [[ $dist == *"Arch"* ]]; then
+        conn()
+        {
+            if [ $# = 1 ]; then
+                sudo netctl-auto switch-to wlo1-$1
+            else
+                netctl-auto current
+            fi
+        }
+    fi
+fi
+
+#  _     _           _ _
+# | |__ (_)_ __   __| (_)_ __   __ _
+# | '_ \| | '_ \ / _` | | '_ \ / _` |
+# | |_) | | | | | (_| | | | | | (_| |
+# |_.__/|_|_| |_|\__,_|_|_| |_|\__, |
+#                              |___/
+# bind C-u
+bindkey "^U" backward-kill-line
+
+#        _ _
+#   __ _| (_) __ _ ___
+#  / _` | | |/ _` / __|
+# | (_| | | | (_| \__ \
+#  \__,_|_|_|\__,_|___/
+
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|\]\s*alert$//'\'')"'
+
+# user alias
+alias sudo='sudo '
+alias server="python3 -m http.server"
+
+
+#                             _
+#   _____  ___ __   ___  _ __| |_
+#  / _ \ \/ / '_ \ / _ \| '__| __|
+# |  __/>  <| |_) | (_) | |  | |_
+#  \___/_/\_\ .__/ \___/|_|   \__|
+#           |_|
+
+# colorful man page
+export PAGER="`which less` -s"
+export BROWSER="$PAGER"
+export LESS_TERMCAP_mb=$'\E[01;34m'
+export LESS_TERMCAP_md=$'\E[01;34m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;33m'
+
+export SSH_ASKPASS='' # Avoid ksshaskpass
+export TERM=xterm-256color
+export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin:/opt/MATLAB/R2010b/bin:$HOME/.cabal/bin
+
+#  _____
+# | ____|_ __ ___   __ _  ___ ___
+# |  _| | '_ ` _ \ / _` |/ __/ __|
+# | |___| | | | | | (_| | (__\__ \
+# |_____|_| |_| |_|\__,_|\___|___/
+
+EMACS_SLIM="$HOME/.emacs.d/init-slim.el"
+alias e="emacs -Q -nw -l $EMACS_SLIM"
+alias E="SUDO_EDITOR=\"emacsclient -t -a vim\" sudoedit"
+alias et='emacsclient -t -a vim "$@"'
+alias ec='emacsclient -n -a vim "$@"'
+alias ecc='emacs --batch -f batch-byte-compile'
+export EDITOR="emacs -Q -nw -l $EMACS_SLIM"
