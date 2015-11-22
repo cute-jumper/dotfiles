@@ -9,5 +9,5 @@ DIR=$HOME/.dotfiles
 FILES=(.latexmkrc .Xmodmap .hunspell_en_US .gitconfig)
 for i in ${FILES[@]}
 do
-    ln -sf $DIR/$i $HOME/$i
+    ln -si $DIR/$i $HOME/$i
 done
