@@ -90,7 +90,7 @@ key.setGlobalKey(["C-x", "g"], function (ev) {
                 command.focusToById("searchbar");
             }, 'Focus to the search bar', true);
 
-key.setGlobalKey(["C-x", "t"], function (ev) {
+key.setGlobalKey(["C-x", "f"], function (ev) {
                 command.focusElement(command.elementsRetrieverTextarea, 0);
             }, 'Focus to the first textarea', true);
 
@@ -110,7 +110,12 @@ key.setGlobalKey('C-r', function (ev) {
                 command.iSearchBackwardKs(ev);
             }, 'Emacs like incremental search backward', true);
 
-key.setGlobalKey(["C-x", "k"], function (ev) {
+key.setGlobalKey('t', function (ev) {
+    gBrowser.selectedTab = gBrowser.addTab();
+    gURLBar.focus();
+})
+
+key.setGlobalKey('x', function (ev) {
                 BrowserCloseTabOrWindow();
             }, 'Close tab / window', false);
 
