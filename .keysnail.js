@@ -102,20 +102,24 @@ key.setGlobalKey('M-w', function (ev) {
                 command.copyRegion(ev);
             }, 'Copy selected text', true);
 
-key.setGlobalKey('C-s', function (ev) {
+key.setViewKey('s', function (ev) {
                 command.iSearchForwardKs(ev);
-            }, 'Emacs like incremental search forward', true);
+}, 'Emacs like incremental search forward', true);
+
+key.setGlobalKey('C-s', function (ev) {
+    command.iSearchForwardKs(ev);
+}, 'Emacs like incremental search forward', true);
 
 key.setGlobalKey('C-r', function (ev) {
                 command.iSearchBackwardKs(ev);
             }, 'Emacs like incremental search backward', true);
 
-key.setGlobalKey('t', function (ev) {
+key.setViewKey('t', function (ev) {
     gBrowser.selectedTab = gBrowser.addTab();
     gURLBar.focus();
-})
+}, 'New tab', true);
 
-key.setGlobalKey('x', function (ev) {
+key.setViewKey('x', function (ev) {
                 BrowserCloseTabOrWindow();
             }, 'Close tab / window', false);
 
@@ -249,7 +253,7 @@ key.setEditKey('M-d', function (ev) {
                 command.deleteForwardWord(ev);
             }, 'Delete forward word', false);
 
-key.setEditKey([["C-<backspace>"], ["M-<delete>"]], function (ev) {
+key.setEditKey([["C-<backspace>"], ["M-<backspace>"]], function (ev) {
                 command.deleteBackwardWord(ev);
             }, 'Delete backward word', false);
 
