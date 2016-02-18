@@ -6,8 +6,27 @@
 
 set -e
 DIR=$HOME/.dotfiles
-FILES=(.latexmkrc .Xmodmap .hunspell_en_US .gitconfig)
-for i in ${FILES[@]}
-do
-    ln -si $DIR/$i $HOME/$i
+
+echo -e "\e[0;32mSTEP 1:\e[m"
+FILES=(.latexmkrc .hunspell_en_US .gitconfig .keysnail.js)
+echo "Would you like to create following symbol links?"
+counter=1
+for i in "${FILES[@]}"; do
+    echo "$counter: $HOME/$i"
+    counter=$(($counter+1))
+done
+while true; do
+    read -p "Your answer: [Y/N] " yn
+    case $yn in
+        [Yy]* )
+            for i in ${FILES[@]}
+            do
+                (set -x; ln -si $DIR/$i $HOME/$i)
+            done
+            break;;
+        [Nn]* )
+            echo "You choose to do nothing."
+            break;;
+        * ) echo "Please answer Y or N.";;
+    esac
 done
