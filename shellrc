@@ -68,7 +68,7 @@ export LESS_TERMCAP_us=$'\E[01;33m'
 
 export SSH_ASKPASS='' # Avoid ksshaskpass
 export TERM=xterm-256color
-export PATH=$PATH:$(ruby -e 'puts Gem.user_dir')/bin:$HOME/.rvm/bin:/opt/MATLAB/R2010b/bin:$HOME/.cabal/bin:$HOME/Android/Ndk
+export PATH=$PATH:/opt/MATLAB/R2010b/bin:$HOME/.local/bin:$HOME/Android/Ndk
 
 #  _____
 # | ____|_ __ ___   __ _  ___ ___
@@ -83,3 +83,11 @@ alias et='emacsclient -t -a vim "$@"'
 alias ec='emacsclient -n -a vim "$@"'
 alias ecc='emacs --batch -f batch-byte-compile'
 export EDITOR="emacs -Q -nw -l $EMACS_SLIM"
+
+#  ______     ____  __
+# |  _ \ \   / /  \/  |
+# | |_) \ \ / /| |\/| |
+# |  _ < \ V / | |  | |
+# |_| \_\ \_/  |_|  |_|
+
+source $HOME/.rvm/scripts/rvm
