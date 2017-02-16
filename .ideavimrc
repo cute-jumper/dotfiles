@@ -1,0 +1,7 @@
+nnoremap H ^
+nnoremap L $
+imap jj <ESC>
+let mapleader=" "
+nnoremap <leader>xs :w<CR>
+set clipboard+=unnamed
+set surround
