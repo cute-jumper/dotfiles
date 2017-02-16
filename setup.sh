@@ -8,7 +8,7 @@ set -e
 DIR=$HOME/.dotfiles
 
 echo -e "\e[0;32mSTEP 1:\e[m"
-FILES=(.latexmkrc .hunspell_en_US .gitconfig .keysnail.js)
+FILES=(.latexmkrc .hunspell_en_US .gitconfig .keysnail.js .vimrc .ideavimrc)
 echo "Would you like to create following symbol links?"
 counter=1
 for i in "${FILES[@]}"; do

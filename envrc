@@ -1,6 +1,10 @@
 # -*- mode:sh -*-
 
-# Loaded by $HOME/.profile
+# Add following line to:
+# - Bash: $HOME/.bash_profile
+# - Zsh: $HOME/.zshenv
+# Load customized env vars
+# source $HOME/.dotfiles/envrc
 
 #                             _
 #   _____  ___ __   ___  _ __| |_

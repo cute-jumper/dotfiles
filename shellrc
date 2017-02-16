@@ -1,5 +1,7 @@
 # -*- mode:sh -*-
 
+# This file should be loaded by the .zshrc
+
 #   __                  _   _
 #  / _|_   _ _ __   ___| |_(_) ___  _ __  ___
 # | |_| | | | '_ \ / __| __| |/ _ \| '_ \/ __|
@@ -47,29 +49,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias sudo='sudo '
 alias server="python3 -m http.server"
 
-
-#                             _
-#   _____  ___ __   ___  _ __| |_
-#  / _ \ \/ / '_ \ / _ \| '__| __|
-# |  __/>  <| |_) | (_) | |  | |_
-#  \___/_/\_\ .__/ \___/|_|   \__|
-#           |_|
-
-# colorful man page
-export PAGER="`which less` -s"
-export BROWSER="$PAGER"
-export LESS_TERMCAP_mb=$'\E[01;34m'
-export LESS_TERMCAP_md=$'\E[01;34m'
-export LESS_TERMCAP_me=$'\E[0m'
-export LESS_TERMCAP_se=$'\E[0m'
-export LESS_TERMCAP_so=$'\E[01;44;33m'
-export LESS_TERMCAP_ue=$'\E[0m'
-export LESS_TERMCAP_us=$'\E[01;33m'
-
-export SSH_ASKPASS='' # Avoid ksshaskpass
-export TERM=xterm-256color
-export PATH=$PATH:/opt/MATLAB/R2010b/bin:$HOME/.local/bin:$HOME/Android/Ndk
-
 #  _____
 # | ____|_ __ ___   __ _  ___ ___
 # |  _| | '_ ` _ \ / _` |/ __/ __|
@@ -90,4 +69,5 @@ export EDITOR="emacs -Q -nw -l $EMACS_SLIM"
 # |  _ < \ V / | |  | |
 # |_| \_\ \_/  |_|  |_|
 
-source $HOME/.rvm/scripts/rvm
+# This has been automatically added to .bash_profile by the RVM installation script
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
