@@ -143,7 +143,15 @@ key.setGlobalKey(['M-g', 'l'], function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(1, true);
 }, 'Select next tab', false);
 
+key.setViewKey('J', function (ev) {
+    getBrowser().mTabContainer.advanceSelectedTab(1, true);
+}, 'Select next tab', false);
+
 key.setGlobalKey(['M-g', 'h'], function (ev) {
+    getBrowser().mTabContainer.advanceSelectedTab(-1, true);
+}, 'Select previous tab', false);
+
+key.setViewKey('K', function (ev) {
     getBrowser().mTabContainer.advanceSelectedTab(-1, true);
 }, 'Select previous tab', false);
 
@@ -536,11 +544,11 @@ key.setViewKey('c', function (aEvent, aArg) {
 }, 'Hok - Foreground yank hint mode', true);
 
 // {{ caret-mode
-key.setViewKey('i', function (ev, arg) {
+key.setViewKey('I', function (ev, arg) {
     util.setBoolPref("accessibility.browsewithcaret", true);
 }, 'Enter caret mode', true);
 // }}
-key.setCaretKey('i', function (ev, arg) {
+key.setCaretKey('I', function (ev, arg) {
     util.setBoolPref("accessibility.browsewithcaret", false);
 }, 'Exit caret mode', true);
 
@@ -556,7 +564,7 @@ key.setGlobalKey(['C-c', 'g'], function (ev, arg) {
                                            encodeURIComponent(content.window.getSelection().toString()));
 }, 'Search in Google', true);
 
-key.setGlobalKey(['C-c', 'D'], function (ev, arg) {
+key.setGlobalKey(['C-c', 'd'], function (ev, arg) {
     gBrowser.selectedTab = gBrowser.addTab("http://www.bing.com/dict?q=" +
                                            encodeURIComponent(content.window.getSelection().toString()));
 }, 'Search in Bing Dict', true);
