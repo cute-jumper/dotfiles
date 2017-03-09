@@ -35,12 +35,11 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git github python battery pip nyan scala sbt rsync gnu-utils svn ruby
          rvm gem bundler cabal archlinux autojump sprunge sudo
-         zsh-autosuggestions zsh-completions zaw)
+         zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit && compinit
-
 
 #  ____  _             _
 # |  _ \| |_   _  __ _(_)_ __  ___
@@ -54,6 +53,11 @@ if [[ $EMACS ]]; then
 else
     export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
 fi
+
+# zsh-history-substring-search
+source $ZSH_CUSTOM/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
 
 # Customize to your needs...
 
