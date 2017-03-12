@@ -6,7 +6,7 @@
 
 set -e
 
-MODULES=(latexmk hunspell git keysnail vim ideavim)
+MODULES=(latexmk hunspell git keysnail vim ideavim zsh)
 for i in "${MODULES[@]}"
 do
     stow -v $i
