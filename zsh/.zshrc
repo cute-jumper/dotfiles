@@ -1,6 +1,17 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
+_fetch() {
+    if [[ $# = 3 && ! -d "$3" ]]; then
+        echo -n "-> Fetching $1..."
+        git clone -q "$2" "$3"
+        echo "Done"
+    fi
+}
+
+# Check oh-my-zsh
+_fetch "oh-my-zsh" https://github.com/robbyrussell/oh-my-zsh.git "$ZSH"
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -39,22 +50,32 @@ fi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git github python battery pip nyan scala sbt rsync gnu-utils svn ruby
-         rvm gem bundler cabal archlinux autojump sprunge sudo z
-         zsh-autosuggestions zsh-completions)
-
 #  ____  _             _
 # |  _ \| |_   _  __ _(_)_ __  ___
 # | |_) | | | | |/ _` | | '_ \/ __|
 # |  __/| | |_| | (_| | | | | \__ \
 # |_|   |_|\__,_|\__, |_|_| |_|___/
 #                |___/
+plugins=(git github python battery pip nyan scala sbt rsync gnu-utils svn ruby
+         rvm gem bundler cabal archlinux sprunge sudo z)
+
+extra_plugins=(zsh-users/zsh-autosuggestions zsh-users/zsh-completions)
+
 if [[ $EMACS ]]; then
     :;
 else
-    plugins+=(zsh-syntax-highlighting)
+    extra_plugins+=(zsh-users/zsh-syntax-highlighting zsh-users/zsh-history-substring-search)
 fi
 
+# Check extra plugins & append to "plugins"
+for i in "${extra_plugins[@]}"; do
+    name="${i##*/}"
+    full_path="$ZSH/custom/plugins/$name"
+    _fetch "$i" "https://github.com/$i.git" "$full_path"
+    plugins+=("$name")
+done
+
+# Load!
 source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit && compinit
