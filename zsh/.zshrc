@@ -5,6 +5,12 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
+#  _____ _
+# |_   _| |__   ___ _ __ ___   ___
+#   | | | '_ \ / _ \ '_ ` _ \ / _ \
+#   | | | | | |  __/ | | | | |  __/
+#   |_| |_| |_|\___|_| |_| |_|\___|
+
 if [[ $EMACS ]]; then
     ZSH_THEME="robbyrussell"
 else
@@ -34,12 +40,8 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git github python battery pip nyan scala sbt rsync gnu-utils svn ruby
-         rvm gem bundler cabal archlinux autojump sprunge sudo
-         zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
-
-source $ZSH/oh-my-zsh.sh
-
-autoload -U compinit && compinit
+         rvm gem bundler cabal archlinux autojump sprunge sudo z
+         zsh-autosuggestions zsh-completions)
 
 #  ____  _             _
 # |  _ \| |_   _  __ _(_)_ __  ___
@@ -47,17 +49,32 @@ autoload -U compinit && compinit
 # |  __/| | |_| | (_| | | | | \__ \
 # |_|   |_|\__,_|\__, |_|_| |_|___/
 #                |___/
+if [[ $EMACS ]]; then
+    :;
+else
+    plugins+=(zsh-syntax-highlighting)
+fi
+
+source $ZSH/oh-my-zsh.sh
+
+autoload -U compinit && compinit
+
+#   ____             __ _
+#  / ___|___  _ __  / _(_) __ _ ___
+# | |   / _ \| '_ \| |_| |/ _` / __|
+# | |__| (_) | | | |  _| | (_| \__ \
+#  \____\___/|_| |_|_| |_|\__, |___/
+#                         |___/
 
 if [[ $EMACS ]]; then
     export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=2"
 else
     export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
+    # zsh-history-substring-search
+    source $ZSH_CUSTOM/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+    bindkey -M emacs '^P' history-substring-search-up
+    bindkey -M emacs '^N' history-substring-search-down
 fi
-
-# zsh-history-substring-search
-source $ZSH_CUSTOM/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
 
 # Customize to your needs...
 
