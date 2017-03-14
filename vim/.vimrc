@@ -5,30 +5,32 @@ Plug 'tpope/vim-surround'
 call plug#end()
 
 " insert mode
-imap jj <ESC>
-imap <C-b> <Left>
-imap <C-f> <Right>
-imap <C-p> <Up>
-imap <C-n> <Down>
-imap <C-a> <C-o>^
-imap <C-e> <C-o>$
-imap <C-d> <Del>
-imap <C-h> <BS>
-imap <C-k> <C-r>=<SID>kill_line()<CR>
+inoremap jj <ESC>
+inoremap <C-b> <Left>
+inoremap <C-f> <Right>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-d> <Del>
+inoremap <C-h> <BS>
+inoremap <C-k> <C-o>D
+" <C-/> doesn't work
+inoremap <C-_> <C-o>u
 
 " command line mode
-cmap <C-p> <Up>
-cmap <C-n> <Down>
-cmap <C-b> <Left>
-cmap <C-f> <Right>
-cmap <C-a> <Home>
-cmap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
 
 " normal mode
 nnoremap H ^
 nnoremap L $
-nmap <C-a> ^
-nmap <C-e> $
+nnoremap <C-a> ^
+nnoremap <C-e> $
 
 " leader
 let mapleader=" "
