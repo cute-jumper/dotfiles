@@ -75,6 +75,17 @@ for i in "${extra_plugins[@]}"; do
     plugins+=("$name")
 done
 
+_fix_zsh_history_substring_search() {
+    echo 'source ${0:A:h}/zsh-history-substring-search.zsh' >\
+         "$ZSH/custom/plugins/zsh-history-substring-search/zsh-history-substring-search.plugin.zsh"
+}
+
+if [[ " ${extra_plugins[*]} " == *" zsh-users/zsh-history-substring-search "* ]];
+then
+    # Add missing plugin.zsh file
+    _fix_zsh_history_substring_search
+fi
+
 # Load!
 source $ZSH/oh-my-zsh.sh
 
@@ -92,7 +103,6 @@ if [[ $EMACS ]]; then
 else
     export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
     # zsh-history-substring-search
-    source $ZSH_CUSTOM/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
     bindkey -M emacs '^P' history-substring-search-up
     bindkey -M emacs '^N' history-substring-search-down
 fi
