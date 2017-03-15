@@ -1,0 +1,14 @@
+#+TITLE: Dotfiles
+
+Home of dotfiles except Emacs configs. Managed by [[https://www.gnu.org/software/stow/][GNU Stow]].
+
+I'm an Emacs user so dotfiles in this repo are really simple and thus should be
+of little use for others.
+
+* Modules
+  - zsh. Use [[https://github.com/robbyrussell/oh-my-zsh/][oh-my-zsh]].
+  - Vim && ideavim. Make insert mode behave like Emacs.
+  - Keysnail.
+  - Git.
+  - Hunspell.
+  - latexmk.
