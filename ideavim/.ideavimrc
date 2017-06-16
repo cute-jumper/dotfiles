@@ -3,5 +3,7 @@ nnoremap L $
 imap jj <ESC>
 let mapleader=" "
 nnoremap <leader>xs :w<CR>
+nnoremap <leader>xf :action GotoFile<CR>
+nnoremap <leader><space> :action GotoFile<CR>
 set clipboard+=unnamed
 set surround
