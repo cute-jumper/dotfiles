@@ -564,7 +564,7 @@ key.setGlobalKey(['C-c', 'g'], function (ev, arg) {
                                            encodeURIComponent(content.window.getSelection().toString()));
 }, 'Search in Google', true);
 
-key.setGlobalKey(['C-c', 'd'], function (ev, arg) {
+key.setGlobalKey(['C-c', 'b'], function (ev, arg) {
     gBrowser.selectedTab = gBrowser.addTab("http://www.bing.com/dict?q=" +
                                            encodeURIComponent(content.window.getSelection().toString()));
 }, 'Search in Bing Dict', true);
