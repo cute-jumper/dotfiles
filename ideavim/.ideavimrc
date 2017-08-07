@@ -2,6 +2,8 @@ nnoremap H ^
 nnoremap L $
 imap jj <ESC>
 let mapleader=" "
+inoremap <C-d> <Del>
+inoremap <C-h> <BS>
 nnoremap <leader>xs :w<CR>
 nnoremap <leader>xf :action GotoFile<CR>
 nnoremap <leader><space> :action GotoFile<CR>
