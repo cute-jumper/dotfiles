@@ -48,6 +48,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # user alias
 alias sudo='sudo '
 alias server="python3 -m http.server"
+alias o="xdg-open"
 
 #  _____
 # | ____|_ __ ___   __ _  ___ ___
