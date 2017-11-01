@@ -59,7 +59,7 @@ fi
 plugins=(git github python battery pip nyan scala sbt rsync gnu-utils svn ruby
          rvm gem bundler cabal archlinux sprunge sudo z)
 
-extra_plugins=(zsh-users/zsh-autosuggestions zsh-users/zsh-completions)
+extra_plugins=(zsh-users/zsh-autosuggestions zsh-users/zsh-completions peterhurford/up.zsh)
 
 if [[ $EMACS ]]; then
     :;
@@ -69,7 +69,7 @@ fi
 
 # Check extra plugins & append to "plugins"
 for i in "${extra_plugins[@]}"; do
-    name="${i##*/}"
+    name="${${i##*/}%*.zsh}"
     full_path="$ZSH/custom/plugins/$name"
     _fetch "$i" "https://github.com/$i.git" "$full_path"
     plugins+=("$name")
