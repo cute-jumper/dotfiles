@@ -18,7 +18,8 @@ from xkeysnail.transform import *
 # Carabiner and caps2esc for ideas and concept.
 define_multipurpose_modmap(
     # Enter is enter when pressed and released. Control when held down.
-    {Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL]}
+    {Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL],
+     Key.ENTER: [Key.ENTER, Key.LEFT_CTRL]}
 
     # Capslock is escape when pressed and released. Control when held down.
     # {Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL]
@@ -38,13 +39,13 @@ define_keymap(re.compile("Firefox|Google-chrome"), {
 }, "Firefox and Chrome")
 
 # Keybindings for Zeal https://github.com/zealdocs/zeal/
-define_keymap(re.compile("Zeal"), {
-    # Ctrl+s to focus search area
-    K("C-s"): K("C-k"),
-}, "Zeal")
+# define_keymap(re.compile("Zeal"), {
+#     # Ctrl+s to focus search area
+#     K("C-s"): K("C-k"),
+# }, "Zeal")
 
 # Emacs-like keybindings in non-Emacs applications
-define_keymap(lambda wm_class: wm_class not in ("Emacs", "URxvt"), {
+define_keymap(lambda wm_class: wm_class not in ("Emacs", "yakuake"), {
     # Cursor
     K("C-b"): with_mark(K("left")),
     K("C-f"): with_mark(K("right")),
