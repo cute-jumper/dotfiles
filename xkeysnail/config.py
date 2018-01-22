@@ -18,9 +18,9 @@ from xkeysnail.transform import *
 # Carabiner and caps2esc for ideas and concept.
 define_multipurpose_modmap(
     # Enter is enter when pressed and released. Control when held down.
-    {Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL],
-     Key.ENTER: [Key.ENTER, Key.LEFT_CTRL]}
-
+    {
+        Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL]
+    }
     # Capslock is escape when pressed and released. Control when held down.
     # {Key.CAPSLOCK: [Key.ESC, Key.LEFT_CTRL]
     # To use this example, you can't remap capslock with define_modmap.
