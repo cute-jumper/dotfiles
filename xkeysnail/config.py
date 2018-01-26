@@ -84,6 +84,7 @@ define_keymap(lambda wm_class: wm_class not in ("Emacs", "yakuake"), {
     K("C-space"): set_mark(True),
     # Search
     K("C-s"): K("F3"),
+    K("C-M-s"): K("C-f"),
     K("C-r"): K("Shift-F3"),
     K("M-Shift-key_5"): K("C-h"),
     # Cancel
