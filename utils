@@ -1,3 +1,5 @@
 _sys=$(uname)
 
-_is_mac() { [ "$_sys" = "Darwin" ] }
+_is_mac() {
+    [ "$_sys" = "Darwin" ]
+}
