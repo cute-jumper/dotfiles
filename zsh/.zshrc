@@ -106,8 +106,8 @@ if [[ $EMACS ]]; then
 else
     export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10"
     # zsh-history-substring-search
-    bindkey -M emacs '^P' history-substring-search-up
-    bindkey -M emacs '^N' history-substring-search-down
+    bindkey -M emacs '^[p' history-substring-search-up
+    bindkey -M emacs '^[n' history-substring-search-down
 fi
 
 # Customize to your needs...
