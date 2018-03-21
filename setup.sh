@@ -12,7 +12,7 @@ source $DOT_DIR/utils
 
 MODULES=(vim ideavim zsh)
 if ! _is_mac; then
-    MODULES+=(latexmk git hunspell)
+    MODULES+=(latexmk git hunspell xkeysnail)
 fi
 for i in "${MODULES[@]}"
 do
