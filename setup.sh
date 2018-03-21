@@ -6,7 +6,14 @@
 
 set -e
 
-MODULES=(latexmk hunspell git keysnail vim ideavim zsh)
+DOT_DIR=$HOME/.dotfiles
+
+source $DOT_DIR/utils
+
+MODULES=(hunspell vim ideavim zsh)
+if ! _is_mac; then
+    MODULES+=(latexmk git)
+fi
 for i in "${MODULES[@]}"
 do
     stow -v $i

@@ -1,0 +1,6 @@
+export KWIN_TRIPLE_BUFFER=1
+
+_add_path "/opt/MATLAB/R2010b/bin"
+_add_path "$HOME/.local/bin"
+_add_path "$HOME/Android/Ndk"
+_add_path "$HOME/.cargo/bin"

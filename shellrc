@@ -7,22 +7,24 @@
 # | |_| | | | '_ \ / __| __| |/ _ \| '_ \/ __|
 # |  _| |_| | | | | (__| |_| | (_) | | | \__ \
 # |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|___/
-if $(type lsb_release >/dev/null 2>&1); then
-    dist=$(lsb_release -i)
-    if [[ $dist == *"Ubuntu"* ]]; then
-        update-ppa()
-        {
-            sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/`echo $1 | tr / - `-`lsb_release -c | awk '{print $NF}' | tr -d ' '`.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
-        }
-    elif [[ $dist == *"Arch"* ]]; then
-        conn()
-        {
-            if [ $# = 1 ]; then
-                sudo netctl-auto switch-to wlo1-$1
-            else
-                netctl-auto current
-            fi
-        }
+if ! _is_mac; then
+    if $(type lsb_release >/dev/null 2>&1); then
+        dist=$(lsb_release -i)
+        if [[ $dist == *"Ubuntu"* ]]; then
+            update-ppa()
+            {
+                sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/`echo $1 | tr / - `-`lsb_release -c | awk '{print $NF}' | tr -d ' '`.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"
+            }
+        elif [[ $dist == *"Arch"* ]]; then
+            conn()
+            {
+                if [ $# = 1 ]; then
+                    sudo netctl-auto switch-to wlo1-$1
+                else
+                    netctl-auto current
+                fi
+            }
+        fi
     fi
 fi
 
@@ -48,7 +50,11 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # user alias
 alias sudo='sudo '
 alias server="python3 -m http.server"
-alias o="xdg-open"
+if ! _is_mac; then
+    alias o="xdg-open"
+else
+    alias o="open"
+fi
 
 #  _____
 # | ____|_ __ ___   __ _  ___ ___

@@ -1,4 +1,6 @@
-export KWIN_TRIPLE_BUFFER=1
+DOT_DIR=$HOME/.dotfiles
+
+source $DOT_DIR/utils
 
 # Load customized env vars
 source $HOME/.dotfiles/envrc

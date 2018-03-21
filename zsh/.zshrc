@@ -1,5 +1,8 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+DOT_DIR=$HOME/.dotfiles
+
+source $DOT_DIR/utils
 
 _fetch() {
     if [[ $# = 3 && ! -d "$3" ]]; then
@@ -22,7 +25,7 @@ _fetch "oh-my-zsh" https://github.com/robbyrussell/oh-my-zsh.git "$ZSH"
 #   | | | | | |  __/ | | | | |  __/
 #   |_| |_| |_|\___|_| |_| |_|\___|
 
-if [[ $EMACS ]]; then
+if [[ $EMACS || is_mac ]]; then
     ZSH_THEME="robbyrussell"
 else
     ZSH_THEME="agnoster"
@@ -109,4 +112,4 @@ fi
 
 # Customize to your needs...
 
-source ~/.dotfiles/shellrc
+source $DOT_DIR/shellrc

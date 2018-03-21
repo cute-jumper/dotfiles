@@ -1,0 +1,3 @@
+_sys=$(uname)
+
+_is_mac() { [ "$_sys" = "Darwin" ] }

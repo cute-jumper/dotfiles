@@ -34,9 +34,8 @@ _add_path() {
     fi
 }
 
-_add_path "/opt/MATLAB/R2010b/bin"
-_add_path "$HOME/.local/bin"
-_add_path "$HOME/Android/Ndk"
-_add_path "$HOME/.cargo/bin"
+if ! _is_mac; then
+    source $DOT_DIR/hp-spectre/envrc
+fi
 
 export PATH=$PATH
