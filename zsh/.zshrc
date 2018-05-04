@@ -60,9 +60,10 @@ fi
 # |_|   |_|\__,_|\__, |_|_| |_|___/
 #                |___/
 plugins=(git github python battery pip nyan scala sbt rsync gnu-utils svn ruby
-         rvm gem bundler cabal archlinux sprunge sudo z)
+         rvm gem bundler cabal archlinux sprunge sudo z zaw)
 
-extra_plugins=(zsh-users/zsh-autosuggestions zsh-users/zsh-completions peterhurford/up.zsh)
+extra_plugins=(zsh-users/zsh-autosuggestions
+               zsh-users/zsh-completions zsh-users/zaw peterhurford/up.zsh)
 
 if [[ $EMACS ]]; then
     :;
@@ -109,6 +110,8 @@ else
     bindkey -M emacs '^[p' history-substring-search-up
     bindkey -M emacs '^[n' history-substring-search-down
 fi
+
+bindkey '^R' zaw-history
 
 # Customize to your needs...
 
