@@ -9,3 +9,4 @@ nnoremap <leader>xf :action GotoFile<CR>
 nnoremap <leader><space> :action GotoFile<CR>
 set clipboard+=unnamed
 set surround
+set ignorecase
