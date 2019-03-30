@@ -34,8 +34,14 @@ _add_path() {
     fi
 }
 
-if ! _is_mac; then
-    source $DOT_DIR/hp-spectre/envrc
+_load() {
+    [ -f $1 ] && source $1
+}
+
+if  _is_mac; then
+    _load $DOT_DIR/macbook/envrc
+else
+    _load $DOT_DIR/hp-spectre/envrc
 fi
 
 export PATH=$PATH
