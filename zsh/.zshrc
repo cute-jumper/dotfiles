@@ -26,7 +26,7 @@ _fetch "oh-my-zsh" https://github.com/robbyrussell/oh-my-zsh.git "$ZSH"
 #   |_| |_| |_|\___|_| |_| |_|\___|
 
 if [[ $EMACS || is_mac ]]; then
-    ZSH_THEME="robbyrussell"
+    ZSH_THEME="xiong-chiamiov"
 else
     ZSH_THEME="agnoster"
 fi
