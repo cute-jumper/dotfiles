@@ -116,3 +116,7 @@ bindkey '^R' zaw-history
 # Customize to your needs...
 
 source $DOT_DIR/shellrc
+CUSTOM_RC="$HOME/.zshrc.custom"
+if [[ -e "$CUSTOM_RC" ]]; then
+    source "$CUSTOM_RC"
+fi
