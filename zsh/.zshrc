@@ -59,7 +59,7 @@ fi
 # |  __/| | |_| | (_| | | | | \__ \
 # |_|   |_|\__,_|\__, |_|_| |_|___/
 #                |___/
-plugins=(git github python battery pip nyan scala sbt rsync gnu-utils svn ruby
+plugins=(git github python battery pip scala sbt rsync gnu-utils svn ruby
          rvm gem bundler cabal archlinux sprunge sudo z zaw)
 
 extra_plugins=(zsh-users/zsh-autosuggestions
