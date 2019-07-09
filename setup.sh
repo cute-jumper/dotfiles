@@ -11,7 +11,9 @@ DOT_DIR=$HOME/.dotfiles
 source $DOT_DIR/utils
 
 MODULES=(vim ideavim zsh)
-if ! _is_mac; then
+if _is_mac; then
+    MODULES+=(hammerspoon)
+else
     MODULES+=(latexmk git hunspell xkeysnail)
 fi
 for i in "${MODULES[@]}"
