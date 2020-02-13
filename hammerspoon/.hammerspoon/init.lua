@@ -42,6 +42,58 @@ hs.hotkey.bind({'cmd', 'alt'}, 'c', function()
       window:setFrame(windowFrame)
 end)
 
+hs.hotkey.bind({'cmd', 'alt'}, 'l', function()
+      local window = hs.window.focusedWindow()
+      local screenDimensions = hs.window.focusedWindow():screen():frame()
+      local windowFrame = window:frame()
+
+      windowFrame.x = screenDimensions.x
+      windowFrame.y = screenDimensions.y
+      windowFrame.w = screenDimensions.w / 3
+      windowFrame.h = screenDimensions.h
+
+      window:setFrame(windowFrame)
+end)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'm', function()
+      local window = hs.window.focusedWindow()
+      local screenDimensions = hs.window.focusedWindow():screen():frame()
+      local windowFrame = window:frame()
+
+      windowFrame.x = screenDimensions.x + screenDimensions.w / 3
+      windowFrame.y = screenDimensions.y
+      windowFrame.w = screenDimensions.w / 3
+      windowFrame.h = screenDimensions.h
+
+      window:setFrame(windowFrame)
+end)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'r', function()
+      local window = hs.window.focusedWindow()
+      local screenDimensions = hs.window.focusedWindow():screen():frame()
+      local windowFrame = window:frame()
+
+      windowFrame.x = screenDimensions.x + screenDimensions.w / 3 * 2
+      windowFrame.y = screenDimensions.y
+      windowFrame.w = screenDimensions.w / 3
+      windowFrame.h = screenDimensions.h
+
+      window:setFrame(windowFrame)
+end)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'up', function ()
+      local window = hs.window.focusedWindow()
+      local screenDimensions = hs.window.focusedWindow():screen():frame()
+      local windowFrame = window:frame()
+
+      windowFrame.x = screenDimensions.x
+      windowFrame.y = screenDimensions.y
+      windowFrame.w = screenDimensions.w
+      windowFrame.h = screenDimensions.h / 2
+
+      window:setFrame(windowFrame)
+end)
+
 hs.hotkey.bind({'cmd', 'alt'}, 'left', function ()
       local window = hs.window.focusedWindow()
       local screenDimensions = hs.window.focusedWindow():screen():frame()
@@ -51,6 +103,19 @@ hs.hotkey.bind({'cmd', 'alt'}, 'left', function ()
       windowFrame.y = screenDimensions.y
       windowFrame.w = screenDimensions.w / 2
       windowFrame.h = screenDimensions.h
+
+      window:setFrame(windowFrame)
+end)
+
+hs.hotkey.bind({'cmd', 'alt'}, 'down', function ()
+      local window = hs.window.focusedWindow()
+      local screenDimensions = hs.window.focusedWindow():screen():frame()
+      local windowFrame = window:frame()
+
+      windowFrame.x = screenDimensions.x
+      windowFrame.y = screenDimensions.y + screenDimensions.h / 2
+      windowFrame.w = screenDimensions.w
+      windowFrame.h = screenDimensions.h / 2
 
       window:setFrame(windowFrame)
 end)
