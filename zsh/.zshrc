@@ -25,8 +25,10 @@ _fetch "oh-my-zsh" https://github.com/robbyrussell/oh-my-zsh.git "$ZSH"
 #   | | | | | |  __/ | | | | |  __/
 #   |_| |_| |_|\___|_| |_| |_|\___|
 
-if [[ $EMACS || is_mac ]]; then
+if [[ -n $EMACS ]] || _is_mac; then
     ZSH_THEME="xiong-chiamiov"
+elif _is_remote; then
+    ZSH_THEME="blinks"
 else
     ZSH_THEME="agnoster"
 fi
@@ -39,7 +41,9 @@ fi
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+if [[ _is_remote ]]; then
+    DISABLE_AUTO_UPDATE="true"
+fi
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
