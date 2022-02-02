@@ -72,7 +72,7 @@ extra_plugins=(zsh-users/zsh-autosuggestions
 if [[ $EMACS ]]; then
     :;
 else
-    extra_plugins+=(zdharma/fast-syntax-highlighting zsh-users/zsh-history-substring-search)
+    extra_plugins+=(zdharma-continuum/fast-syntax-highlighting zsh-users/zsh-history-substring-search)
 fi
 
 # Check extra plugins & append to "plugins"
